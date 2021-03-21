@@ -1,0 +1,23 @@
+# .: ~ .gitignore file ~ :.
+
+# Ignore everything
+
+/*
+
+# Ignore files:
+*.pyc
+
+# Thing to not ignore
+!.gitignore
+!LICENSE.md
+!README.md
+!nvim/
+!kakoune/
+!emacs/
+!doom/
+!zsh/
+!zsh/**
+!qtile/
+!xmonad/
+!xmobar/
+!termite/
