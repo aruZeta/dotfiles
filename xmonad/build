@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# .: ~ build.sh ~ :.
+
+output="$1"
+
+SRC_DIR="$XDG_CONFIG_HOME/xmonad/"
+[[ -d $SRC_DIR ]] || SRC_DIR="$HOME/.config/xmonad/" && [[ -d $SRC_DIR ]] || SRC_DIR="$HOME/.xmonad/"
+if test -f "$SRC_DIR/build"; then
+    :
+else
+    echo "Set a config directory for xmonad, aborting..."
+    exit 1
+fi
+cd "$SRC_DIR"
+
+EXE_NAME=
+if [ "$EXE_NAME" = "" ]; then
+    EXE_NAME="$(awk '!done && /^executable / {print $2; done = 1}' *.cabal)"
+fi
+
+dname="$(dirname "$output")"
+bname="$(basename "$output")"
+first=0
+
+for exe in $EXE_NAME; do
+    cabal install exe:"$EXE_NAME" \
+        --enable-executable-stripping \
+        --enable-optimization=2 \
+        --installdir="$dname" \
+        --overwrite-policy=always
+    if [ $first = 0 ]; then
+        first=1
+        if [ "$bname" = "$exe" ]; then
+            :
+        else
+            ln -sf "$exe" "$output"
+        fi
+    elif [ "$bname" = "$exe" ]; then
+        echo "The link got replaced with a direct link into the cabal package" >&2
+    fi
+done

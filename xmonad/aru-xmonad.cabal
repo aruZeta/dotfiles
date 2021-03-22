@@ -1,0 +1,17 @@
+-- .: ~ xmonad.cabal ~ :.
+
+name:          aru-xmonad
+version:       0.1
+synopsis:      aru's xmonad config
+homepage:      https://github.com/aru-hackZ
+author:        aru <aru_62_hackZ_official@protonmail.com>
+maintainer:    aru <aru_62_hackZ_official@protonmail.com>
+copyright:     Copyright (c) 2021 Alberto Robles Gomez
+category:      Graphics
+build-type:    Simple
+cabal-version: >=1.8
+
+executable aru-xmonad
+  main-is: xmonad.hs
+  ghc-options: -Wall -Werror -fno-warn-missing-signatures
+  build-depends: base, xmonad, xmonad-contrib
