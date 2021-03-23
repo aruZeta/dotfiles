@@ -47,7 +47,6 @@ the AUR:
 
 ```shell
 yay -S ghcup-hs-bin
-# aaa
 ```
 
 Now that you have ghcup, lets list everything available:
@@ -82,6 +81,9 @@ add the following:
 export PATH="$PATH:$HOME/.cabal/bin:$HOME/.local/bin"
 ```
 
+**NOTE**: You will need to log out and log in so this change to the `$PATH`
+variable takes effect.
+
 ### Installing xmonad and xmonad-contrib
 
 With cabal installed we can just do `cabal install <package>` to install
@@ -104,7 +106,7 @@ We will be using cabal to manage our project, so we will need a cabal file for
 it, you can use [my cabal file](./aru-xmonad.cabal) changing any parameter or
 info you need.
 
-In a cabal file, appart from the the projects metadata like author, version,
+In a cabal file, appart from the projects metadata like author, version,
 etc, we have to specify, in this case, an executable, which will have as main
 file our xmonad configuration file. We can also add flags for its compilation,
 and the dependencies needed to build, which are `base`, `xmonad` and
@@ -117,8 +119,8 @@ because you will have problems if you dont do it this way.
 ### build file
 
 Because we are using cabal to build our executable, we will need a build file
-which xmonad will use when recompiling to point tell cabal to build the
-executable. Just copy [this executable](./build).
+which xmonad will use when recompiling to tell cabal to build the executable.
+Just copy [this executable](./build).
 
 ### hie.yaml
 
