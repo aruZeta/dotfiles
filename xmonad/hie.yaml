@@ -1,4 +1,4 @@
-# .: ~ .gitignore file ~ :.
+# .: ~ hie.yaml file ~ :.
 
 #                                 /██                       /██      /████████
 #                                | ██                      | ██     |_____ ██/
@@ -9,42 +9,7 @@
 # |  ██████| ██     |  ██████/   | ██  | █|  ██████|  ██████ ██ \  ██/████████
 #  \_______|__/      \______/    |__/  |__/\_______/\______|__/  \__|________/
 
-# Ignore everything
-
-/*
-
-# Ignore files:
-*.pyc
-
-# Thing to not ignore
-!.gitignore
-!LICENSE.md
-!README.md
-
-!nvim/
-nvim/**
-
-!kakoune/
-kakoune/**
-
-!emacs/
-emacs/**
-
-!doom/
-doom/**
-
-!zsh/
-zsh/**
-
-!qtile/
-qtile/**
-
-!xmonad/
-!xmonad/**
-xmonad/dist-newstyle/
-
-!xmobar/
-!xmobar/**
-
-!termite/
-termite/**
+cradle:
+  cabal:
+    - path: "./xmonad.hs"
+      component: "aru-xmonad:exe:aru-xmonad"
