@@ -41,6 +41,10 @@ cabal install xmobar --flags="all_extensions"
 
 And thats it, really easy.
 
+**NOTE**: While cabal installs some alsa things, you may run into some problem,
+you just need to `export LANG=c` and run again the
+`cabal install xmobar --flags"all_extensions"` command.
+
 ## Configuration
 
 ### xmobarrc
