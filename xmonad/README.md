@@ -1,6 +1,6 @@
 # aru's XMonad config
 
-```txt
+```text
                                 /██                       /██      /████████
                                | ██                      | ██     |_____ ██/
   /██████  /██████ /██   /██   | ███████  /██████  /██████ ██   /██    /██/
@@ -30,7 +30,7 @@ installation.
 
 ## Installation
 
-Here I will show you how to install xmonad and xmobar, but first you will need
+Here I will show you how to install xmonad, but first you will need
 a haskell compiler, ghc, and cabal. The best way to install those is with
 [ghcup](https://gitlab.haskell.org/haskell/ghcup-hs).
 
@@ -38,7 +38,7 @@ a haskell compiler, ghc, and cabal. The best way to install those is with
 
 You can download it via a `curl | sh` command like this:
 
-```sh
+```shell
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```
 
