@@ -72,6 +72,14 @@ recommended ghc version, which is hls-powered and so you can install hls
 (haskell language server, for completion, debugging, etc) and so on with cabal
 and hls, choose the recommended version.
 
+When you install any of those, by default they will be installed in
+`~/.ghcup/bin`, so you will need to add that directory to your path, but if you
+prefer it to be in `~/.local/bin` (I like it better like that), just set the
+`$GHCUP_USE_XDG_DIRS` to any value. Now to install them you will have to use
+`ghcup install <tool> <version>` where you have to change `<tool>` to the name
+of the tool you want to install, for example `ghc` and version `<version>` with
+the version you want.
+
 Now that you have cabal, ghc and maybe hls, you need to add the binarys located
 in `.cabal` and `.local` to your `$PATH`, so head to your `~/.xprofile` file and
 add the following:
