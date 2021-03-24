@@ -16,6 +16,9 @@ configured, like Window Managers, code editors, etc.
 
 ## Table of Contents
 
-- Window Managers
+- Window Managers:
   - [xmonad](./xmonad/)
+- Status bars:
   - [xmobar](./xmobar/)
+- Shells:
+  - [zsh](./zsh/)
