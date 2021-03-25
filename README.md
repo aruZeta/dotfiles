@@ -20,5 +20,7 @@ configured, like Window Managers, code editors, etc.
   - [xmonad](./xmonad/)
 - Status bars:
   - [xmobar](./xmobar/)
+- App launchers:
+  - [rofi](./rofi/)
 - Shells:
   - [zsh](./zsh/)
