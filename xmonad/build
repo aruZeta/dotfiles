@@ -11,41 +11,15 @@
 # |  ██████| ██     |  ██████/   | ██  | █|  ██████|  ██████ ██ \  ██/████████
 #  \_______|__/      \______/    |__/  |__/\_______/\______|__/  \__|________/
 
-output="$1"
-
 SRC_DIR="$XDG_CONFIG_HOME/xmonad/"
-[[ -d $SRC_DIR ]] || SRC_DIR="$HOME/.config/xmonad/" && [[ -d $SRC_DIR ]] || SRC_DIR="$HOME/.xmonad/"
-if test -f "$SRC_DIR/build"; then
-    :
-else
-    echo "Set a config directory for xmonad, aborting..."
-    exit 1
-fi
-cd "$SRC_DIR"
+EXE_NAME="aru-xmonad"
 
-EXE_NAME=
-if [ "$EXE_NAME" = "" ]; then
-    EXE_NAME="$(awk '!done && /^executable / {print $2; done = 1}' *.cabal)"
-fi
+([[ -f "$SRC_DIR/build" ]] && cd "$SRC_DIR") || (echo "Set your \$SRC_DIR" && exit 1)
 
-dname="$(dirname "$output")"
-bname="$(basename "$output")"
-first=0
+cabal install exe:"$EXE_NAME" \
+    --enable-executable-stripping \
+    --enable-optimizations=2 \
+    --installdir="$(dirname "$1")" \
+    --overwrite-policy=always
 
-for exe in $EXE_NAME; do
-    cabal install exe:"$EXE_NAME" \
-        --enable-executable-stripping \
-        --enable-optimization=2 \
-        --installdir="$dname" \
-        --overwrite-policy=always
-    if [ $first = 0 ]; then
-        first=1
-        if [ "$bname" = "$exe" ]; then
-            :
-        else
-            ln -sf "$exe" "$output"
-        fi
-    elif [ "$bname" = "$exe" ]; then
-        echo "The link got replaced with a direct link into the cabal package" >&2
-    fi
-done
+[[ "$(basename "$1")" = "EXE" ]] || ln -sf "$EXE_NAME" "$1"

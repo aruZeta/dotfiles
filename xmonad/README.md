@@ -128,7 +128,9 @@ because you will have problems if you dont do it this way.
 
 Because we are using cabal to build our executable, we will need a build file
 which xmonad will use when recompiling to tell cabal to build the executable.
-Just copy [this executable](./build).
+You can use [this buildfile](./build) and you will need to change the `$SRC_DIR`
+variable to the directory where you store your xmonad config and cabal file, and
+also `$EXE_NAME` to the name you gave the executable in your cabal file.
 
 ### hie.yaml
 
