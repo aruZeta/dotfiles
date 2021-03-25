@@ -49,3 +49,6 @@ xmonad/dist-newstyle/
 
 !termite/
 termite/**
+
+!rofi/
+!rofi/**

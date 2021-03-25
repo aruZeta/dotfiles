@@ -1,0 +1,20 @@
+configuration {
+    modi: "drun";
+    font: "FiraCode Nerd Font Mono Bold 9";
+    bw: 1;
+    fixed-num-lines: true;
+    show-icons: true;
+    terminal: "termite";
+    run-shell-command: "{terminal} -e '{cmd}; read -n 1 -s'";
+    icon-theme: "Gruvbox-Material-Dark";
+    drun-match-fields: "name,generic,keywords";
+    drun-display-format: "{name} [<span weight='light'><i>({generic})</i></span>]";
+    disable-history: false;
+    sort: false;
+    sorting-method: "normal";
+    case-sensitive: false;
+    matching: "glob";
+    theme: "gruvbox-theme";
+    max-history-size: 10;
+    kb-cancel: "Escape";
+}
