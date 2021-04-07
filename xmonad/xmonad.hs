@@ -90,7 +90,7 @@ windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . XM_SS.integrate' . XM_SS.stack . XM_SS.workspace . XM_SS.current . windowset
 
 myTerm :: String
-myTerm = "termite"
+myTerm = "alacritty"
 
 myMod :: KeyMask
 myMod = mod4Mask

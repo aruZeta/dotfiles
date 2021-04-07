@@ -4,7 +4,7 @@ configuration {
     bw: 1;
     fixed-num-lines: true;
     show-icons: true;
-    terminal: "termite";
+    terminal: "alacritty";
     run-shell-command: "{terminal} -e '{cmd}; read -n 1 -s'";
     icon-theme: "Gruvbox-Material-Dark";
     drun-match-fields: "name,generic,keywords";

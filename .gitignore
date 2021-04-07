@@ -37,6 +37,9 @@ doom/**
 !zsh/**
 zsh/.zcompdump*
 
+!fish/
+!fish/**
+
 !qtile/
 qtile/**
 
