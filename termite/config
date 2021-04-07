@@ -1,4 +1,4 @@
-# .: ~ .gitignore file ~ :.
+# .: ~ config file ~ :.
 
 #                                 /██                       /██      /████████
 #                                | ██                      | ██     |_____ ██/
@@ -9,52 +9,51 @@
 # |  ██████| ██     |  ██████/   | ██  | █|  ██████|  ██████ ██ \  ██/████████
 #  \_______|__/      \______/    |__/  |__/\_______/\______|__/  \__|________/
 
-# Ignore everything
+[options]
+allow_bold = true
+clickable_url = true
+font = FiraCode Nerd Font Mono Bold 9
+mouse_autohide = true
+scrollback_lines = 10000
+cursor_shape = block
+scrollbar = off
 
-/*
+[colors]
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
+background = #1d2021
 
-# Ignore files:
-*.pyc
+# black
+color0  = #282828
+color8  = #928374
 
-# Thing to not ignore
-!.gitignore
-!LICENSE.md
-!README.md
+# red
+color1  = #cc241d
+color9  = #fb4934
 
-!nvim/
-nvim/**
+# green
+color2  = #98971a
+color10 = #b8bb26
 
-!kakoune/
-kakoune/**
+# yellow
+color3  = #d79921
+color11 = #fabd2f
 
-!emacs/
-emacs/**
+# blue
+color4  = #458588
+color12 = #83a598
 
-!doom/
-doom/**
+# magenta
+color5  = #b16286
+color13 = #d3869b
 
-!zsh/
-!zsh/**
-zsh/.zcompdump*
+# cyan
+color6  = #689d6a
+color14 = #8ec07c
 
-!fish/
-!fish/**
+# white
+color7  = #a89984
+color15 = #ebdbb2
 
-!qtile/
-qtile/**
-
-!xmonad/
-!xmonad/**
-xmonad/dist-newstyle/
-
-!xmobar/
-!xmobar/**
-
-!termite/
-!termite/**
-
-!alacritty/
-!alacritty/**
-
-!rofi/
-!rofi/**
+[hints]
+font = FiraCode Nerd Font Mono Bold 9
