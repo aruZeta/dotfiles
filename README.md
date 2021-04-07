@@ -22,5 +22,9 @@ configured, like Window Managers, code editors, etc.
   - [xmobar](./xmobar/)
 - App launchers:
   - [rofi](./rofi/)
+- Terminal emulators:
+  - [termite](./termite/)
+  - [alacritty](./alacritty)
 - Shells:
   - [zsh](./zsh/)
+  - [fish](./fish/)
