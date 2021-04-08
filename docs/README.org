@@ -15,20 +15,8 @@
 In this repo you will find my dotfiles for all those things I have tried and
 configured, like Window Managers, code editors, etc.
 
-* Configs:
+* Table of Contents
 - Window Managers:
-  - [[file:./xmonad/][xmonad]]
+  - [[file:./WindowManagers/xmonad/README.org][xmonad]]
 - Status bars:
-  - [[file:./xmobar/][xmobar]]
-- App launchers:
-  - [[file:./rofi/][rofi]]
-- Terminal emulators:
-  - [[file:./termite/][termite]]
-  - [[file:./alacritty][alacritty]]
-- Shells:
-  - [[file:./zsh/][zsh]]
-  - [[file:./fish/][fish]]
-
-* Docs:
-- In org-mode (preferable to use on emacs, in github links may not work), [[file:./docs][here]].
-- TODO Github Pages (preferable to use in the browser).
+  - [[file:./StatusBars/xmobar/README.org][xmobar]]

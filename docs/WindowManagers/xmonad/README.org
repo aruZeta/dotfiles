@@ -1,8 +1,8 @@
 #+TITLE: aru's XMonad config
-#+DATE:  April 08, 2021
+#+DATE: April 08, 2021
 #+OPTIONS: toc:3
 
-#+BEGIN_SRC text
+#+begin_src text
                                 /██                       /██      /████████
                                | ██                      | ██     |_____ ██/
   /██████  /██████ /██   /██   | ███████  /██████  /██████ ██   /██    /██/
@@ -11,7 +11,7 @@
  /██__  █| ██     | ██  | ██   | ██  | ██/██__  █| ██    | ██_  ██  /██/
 |  ██████| ██     |  ██████/   | ██  | █|  ██████|  ██████ ██ \  ██/████████
  \_______|__/      \______/    |__/  |__/\_______/\______|__/  \__|________/
-#+END_SRC
+#+end_src
 
 Here is my XMonad config, and I also will guide you through the process of
 installation.
@@ -21,24 +21,24 @@ installation.
 Here I will show you how to install xmonad, but first you will need
 a haskell compiler, ghc, and cabal. The best way to install those is with [[https://gitlab.haskell.org/haskell/ghcup-hs][ghcup]].
 
-* Installing ghcup, cabal and more
+** Installing ghcup, cabal and more
 
 You can download it via a ~curl | sh~ command like this:
 
-#+BEGIN_SRC shell
+#+begin_src shell
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-#+END_SRC
+#+end_src
 
 Or, if available, with your package manager, for Arch users it is available in
 the AUR:
 
-#+BEGIN_SRC shell
+#+begin_src shell
 yay -S ghcup-hs-bin
-#+END_SRC
+#+end_src
 
 Now that you have ghcup, lets list everything available:
 
-#+BEGIN_SRC shell
+#+begin_src shell
 ghcup list
 
 # Output example:
@@ -52,7 +52,7 @@ ghcup list
 # ✗  cabal 3.4.0.0 latest,recommended
 # ✗  hls   1.0.0   latest,recommended
 # ✗  ghcup 0.1.14  latest,recommended
-#+END_SRC
+#+end_src
 
 Here you see you can install ghc, cabal and hls. I recommend you install the
 recommended ghc version, which is hls-powered and so you can install hls
@@ -71,10 +71,10 @@ Now that you have cabal, ghc and maybe hls, you need to add the binarys located
 in ~.cabal~ and ~.local~ to your ~$PATH~, so head to your ~~/.xprofile~ file and
 add the following:
 
-#+BEGIN_SRC shell
+#+begin_src shell
 # .xprofile file
 export PATH="$PATH:$HOME/.cabal/bin:$HOME/.local/bin"
-#+END_SRC
+#+end_src
 
 *NOTE*: You will need to log out and log in so this change to the ~$PATH~
 variable takes effect.
@@ -86,10 +86,10 @@ packages, but for ~xmonad-contrib~ you will need to specify the ~--lib~ flag
 for it to work properly, because it doesn't install an executable like ~xmonad~
 but a library.
 
-#+BEGIN_SRC shell
+#+begin_src shell
 cabal install xmonad
 cabal install --lib xmonad-contrib
-#+END_SRC
+#+end_src
 
 * Configuration
 
@@ -98,7 +98,7 @@ We have everything we need, lets start confuring it to make it work.
 ** cabal file
 
 We will be using cabal to manage our project, so we will need a cabal file for
-it, you can use [[file:./aru-xmonad.cabal][my cabal file]] changing any parameter or info you need.
+it, you can use [[file:../../../xmonad/aru-xmonad.cabal][my cabal file]] changing any parameter or info you need.
 
 In a cabal file, appart from the projects metadata like author, version,
 etc, we have to specify, in this case, an executable, which will have as main
@@ -114,7 +114,7 @@ because you will have problems if you dont do it this way.
 
 Because we are using cabal to build our executable, we will need a build file
 which xmonad will use when recompiling to tell cabal to build the executable.
-You can use [[file:./build][this buildfile]] and you will need to change the ~$SRC_DIR~
+You can use [[file:../../../xmonad/build][this buildfile]] and you will need to change the ~$SRC_DIR~
 variable to the directory where you store your xmonad config and cabal file, and
 also ~$EXE_NAME~ to the name you gave the executable in your cabal file.
 
@@ -155,7 +155,7 @@ Now that you have a working xmonad config, you want to start it with your login
 manager of preference, so we need to setup a ~.desktop~ file in
 ~/usr/share/xsessions~, we will call it ~xmonad.desktop~:
 
-#+BEGIN_SRC text
+#+begin_src text
 [Desktop Entry]
 Encoding=UTF-8
 Type=Application
@@ -166,7 +166,7 @@ Icon=xmonad
 Terminal=false
 StartupNotify=false
 Categories=wm,tiling
-#+END_SRC
+#+end_src
 
 Now with this saved, you can log out and log in again, and in your login manager
 you should see a new entry called XMonad, and it should let you start using it,

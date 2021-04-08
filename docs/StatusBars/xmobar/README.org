@@ -1,8 +1,8 @@
 #+TITLE: aru's XMobar config
-#+DATE:  April 08, 2021
+#+DATE: April 08, 2021
 #+OPTIONS: toc:3
 
-#+BEGIN_SRC text
+#+begin_src text
                                 /██                       /██      /████████
                                | ██                      | ██     |_____ ██/
   /██████  /██████ /██   /██   | ███████  /██████  /██████ ██   /██    /██/
@@ -11,7 +11,7 @@
  /██__  █| ██     | ██  | ██   | ██  | ██/██__  █| ██    | ██_  ██  /██/
 |  ██████| ██     |  ██████/   | ██  | █|  ██████|  ██████ ██ \  ██/████████
  \_______|__/      \______/    |__/  |__/\_______/\______|__/  \__|________/
-#+END_SRC
+#+end_src
 
 Here is my XMobar config, and I also will guide you through the process of
 installation.
@@ -19,7 +19,7 @@ installation.
 * Installation
 
 Here I will show you how to install xmobar, I will be doing it with cabal so if
-you didn't follow my instructions to install XMonad, take look [[file:../xmonad/README.org::*Installing ghcup, cabal and more][here]] to know how
+you didn't follow my instructions to install XMonad, take look [[file:../../WindowManagers/xmonad/README.org::*Installing ghcup, cabal and more][here]] to know how
 to install cabal.
 
 ** Installing xmobar
@@ -28,9 +28,9 @@ This is really easy, you just need to do a ~cabal install~, but in xmobar we can
 add support for many things, like xft fonts and some widgets, so we will be
 adding the flag ~--flags="all_extensions"~, so it will look like this:
 
-#+BEGIN_SRC shell
+#+begin_src shell
 cabal install xmobar --flags="all_extensions"
-#+END_SRC
+#+end_src
 
 And thats it, really easy.
 
@@ -50,7 +50,7 @@ external monitor setup.
 ** start xmobar from xmonad
 
 Now that you configured xmobar, you will need to start from xmonad, so as you
-can see in my [[file:../xmonad/xmonad.hs][xmonad config]] you will need to invoque it with a ~spawnPipe
+can see in my [[file:../../../xmonad/xmonad.hs][xmonad config]] you will need to invoque it with a ~spawnPipe
 "xmobar -x N path/to/xmobarrc"~, the ~-x N~ part is for telling xmobar in
 which monitor to spawn.
 

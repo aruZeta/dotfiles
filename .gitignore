@@ -21,6 +21,9 @@
 !LICENSE.md
 !README.org
 
+!docs/
+!docs/**
+
 !nvim/
 nvim/**
 
