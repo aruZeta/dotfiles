@@ -18,8 +18,8 @@ EXE_NAME="aru-xmonad"
 
 cabal install exe:"$EXE_NAME" \
     --enable-executable-stripping \
-    --enable-optimizations=2 \
+    --enable-optimization=2 \
     --installdir="$(dirname "$1")" \
     --overwrite-policy=always
 
-[[ "$(basename "$1")" = "EXE" ]] || ln -sf "$EXE_NAME" "$1"
+[[ "$(basename "$1")" = "$EXE_NAME" ]] || ln -sf "$EXE_NAME" "$1"
