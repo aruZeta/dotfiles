@@ -19,7 +19,7 @@
 # Thing to not ignore
 !.gitignore
 !LICENSE.md
-!README.md
+!README.org
 
 !nvim/
 nvim/**
