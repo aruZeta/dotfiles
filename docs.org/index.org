@@ -1,5 +1,6 @@
 #+TITLE: aru's Dotfiles repo
 #+DATE: April 08, 2021
+#+OPTIONS: toc:nil
 
 #+begin_src text
                                 /██                       /██      /████████
