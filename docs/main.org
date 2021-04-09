@@ -17,6 +17,6 @@ configured, like Window Managers, code editors, etc.
 
 * Table of Contents
 - Window Managers:
-  - [[file:./WindowManagers/xmonad/README.org][xmonad]]
+  - [[file:./WindowManagers/xmonad/xmonad.org][xmonad]]
 - Status bars:
-  - [[file:./StatusBars/xmobar/README.org][xmobar]]
+  - [[file:./StatusBars/xmobar/xmobar.org][xmobar]]

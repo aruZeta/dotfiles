@@ -19,7 +19,7 @@ installation.
 * Installation
 
 Here I will show you how to install xmobar, I will be doing it with cabal so if
-you didn't follow my instructions to install XMonad, take look [[file:../../WindowManagers/xmonad/README.org::*Installing ghcup, cabal and more][here]] to know how
+you didn't follow my instructions to install XMonad, take look [[file:../../WindowManagers/xmonad/xmonad.org::*Installing ghcup, cabal and more][here]] to know how
 to install cabal.
 
 ** Installing xmobar
