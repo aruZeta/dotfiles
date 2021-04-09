@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-04-09 vie 19:19 -->
+<!-- 2021-04-09 vie 19:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>aru's XMonad config</title>
@@ -222,24 +222,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4772c12">1. Installation</a>
+<li><a href="#orge6c2347">1. Installation</a>
 <ul>
-<li><a href="#org479abb8">1.1. Installing ghcup, cabal and more</a></li>
-<li><a href="#org972f4e9">1.2. Installing xmonad and xmonad-contrib</a></li>
+<li><a href="#orge781b85">1.1. Installing ghcup, cabal and more</a></li>
+<li><a href="#org240ac70">1.2. Installing xmonad and xmonad-contrib</a></li>
 </ul>
 </li>
-<li><a href="#org508ae56">2. Configuration</a>
+<li><a href="#org48d1716">2. Configuration</a>
 <ul>
-<li><a href="#org309246e">2.1. cabal file</a></li>
-<li><a href="#orga7043c7">2.2. build file</a></li>
-<li><a href="#org759ef5f">2.3. hie.yaml</a></li>
-<li><a href="#orge95e17e">2.4. xmonad config</a></li>
+<li><a href="#orgf566956">2.1. cabal file</a></li>
+<li><a href="#org9fc54b1">2.2. build file</a></li>
+<li><a href="#org8b998bb">2.3. hie.yaml</a></li>
+<li><a href="#orge8f9c09">2.4. xmonad config</a></li>
 </ul>
 </li>
-<li><a href="#org71bf640">3. XMonad initialization</a>
+<li><a href="#org23cba36">3. XMonad initialization</a>
 <ul>
-<li><a href="#org14cf436">3.1. Testing</a></li>
-<li><a href="#orge559e5c">3.2. Configuring the login manager</a></li>
+<li><a href="#orga41a710">3.1. Testing</a></li>
+<li><a href="#org6a0f06e">3.2. Configuring the login manager</a></li>
 </ul>
 </li>
 </ul>
@@ -262,8 +262,8 @@ Here is my XMonad config, and I also will guide you through the process of
 installation.
 </p>
 
-<div id="outline-container-org4772c12" class="outline-2">
-<h2 id="org4772c12"><span class="section-number-2">1</span> Installation</h2>
+<div id="outline-container-orge6c2347" class="outline-2">
+<h2 id="orge6c2347"><span class="section-number-2">1</span> Installation</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Here I will show you how to install xmonad, but first you will need
@@ -271,8 +271,8 @@ a haskell compiler, ghc, and cabal. The best way to install those is with <a hre
 </p>
 </div>
 
-<div id="outline-container-org479abb8" class="outline-3">
-<h3 id="org479abb8"><span class="section-number-3">1.1</span> Installing ghcup, cabal and more</h3>
+<div id="outline-container-orge781b85" class="outline-3">
+<h3 id="orge781b85"><span class="section-number-3">1.1</span> Installing ghcup, cabal and more</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 You can download it via a <code>curl | sh</code> command like this:
@@ -350,8 +350,8 @@ variable takes effect.
 </div>
 </div>
 
-<div id="outline-container-org972f4e9" class="outline-3">
-<h3 id="org972f4e9"><span class="section-number-3">1.2</span> Installing xmonad and xmonad-contrib</h3>
+<div id="outline-container-org240ac70" class="outline-3">
+<h3 id="org240ac70"><span class="section-number-3">1.2</span> Installing xmonad and xmonad-contrib</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 With cabal installed we can just do <code>cabal install &lt;package&gt;</code> to install
@@ -369,16 +369,16 @@ cabal install --lib xmonad-contrib
 </div>
 </div>
 
-<div id="outline-container-org508ae56" class="outline-2">
-<h2 id="org508ae56"><span class="section-number-2">2</span> Configuration</h2>
+<div id="outline-container-org48d1716" class="outline-2">
+<h2 id="org48d1716"><span class="section-number-2">2</span> Configuration</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We have everything we need, lets start confuring it to make it work.
 </p>
 </div>
 
-<div id="outline-container-org309246e" class="outline-3">
-<h3 id="org309246e"><span class="section-number-3">2.1</span> cabal file</h3>
+<div id="outline-container-orgf566956" class="outline-3">
+<h3 id="orgf566956"><span class="section-number-3">2.1</span> cabal file</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 We will be using cabal to manage our project, so we will need a cabal file for
@@ -401,8 +401,8 @@ because you will have problems if you dont do it this way.
 </div>
 </div>
 
-<div id="outline-container-orga7043c7" class="outline-3">
-<h3 id="orga7043c7"><span class="section-number-3">2.2</span> build file</h3>
+<div id="outline-container-org9fc54b1" class="outline-3">
+<h3 id="org9fc54b1"><span class="section-number-3">2.2</span> build file</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Because we are using cabal to build our executable, we will need a build file
@@ -414,8 +414,8 @@ also <code>$EXE_NAME</code> to the name you gave the executable in your cabal fi
 </div>
 </div>
 
-<div id="outline-container-org759ef5f" class="outline-3">
-<h3 id="org759ef5f"><span class="section-number-3">2.3</span> hie.yaml</h3>
+<div id="outline-container-org8b998bb" class="outline-3">
+<h3 id="org8b998bb"><span class="section-number-3">2.3</span> hie.yaml</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 If you are using an IDE like VSCode or any code editor with lsp, and you have
@@ -433,8 +433,8 @@ able to use HLS with its maximum power.
 </div>
 </div>
 
-<div id="outline-container-orge95e17e" class="outline-3">
-<h3 id="orge95e17e"><span class="section-number-3">2.4</span> xmonad config</h3>
+<div id="outline-container-orge8f9c09" class="outline-3">
+<h3 id="orge8f9c09"><span class="section-number-3">2.4</span> xmonad config</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Now you need to create a xmonad.hs file (or how you called it in the cabal
@@ -445,12 +445,12 @@ your configuration.
 </div>
 </div>
 
-<div id="outline-container-org71bf640" class="outline-2">
-<h2 id="org71bf640"><span class="section-number-2">3</span> XMonad initialization</h2>
+<div id="outline-container-org23cba36" class="outline-2">
+<h2 id="org23cba36"><span class="section-number-2">3</span> XMonad initialization</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org14cf436" class="outline-3">
-<h3 id="org14cf436"><span class="section-number-3">3.1</span> Testing</h3>
+<div id="outline-container-orga41a710" class="outline-3">
+<h3 id="orga41a710"><span class="section-number-3">3.1</span> Testing</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Before the next step, you have to run <code>cabal build</code> to build the project. Now
@@ -467,8 +467,8 @@ the next step.
 </div>
 </div>
 
-<div id="outline-container-orge559e5c" class="outline-3">
-<h3 id="orge559e5c"><span class="section-number-3">3.2</span> Configuring the login manager</h3>
+<div id="outline-container-org6a0f06e" class="outline-3">
+<h3 id="org6a0f06e"><span class="section-number-3">3.2</span> Configuring the login manager</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Now that you have a working xmonad config, you want to start it with your login
@@ -498,7 +498,7 @@ gives any error.
 </p>
 
 <p>
-As I told you at the end of <a href="#org479abb8">here</a>, you will need to have the executables in your
+As I told you at the end of <a href="#orge781b85">here</a>, you will need to have the executables in your
 path.
 </p>
 </div>
@@ -507,7 +507,7 @@ path.
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: April 08, 2021</p>
-<p class="date">Created: 2021-04-09 vie 19:19</p>
+<p class="date">Created: 2021-04-09 vie 19:36</p>
 </div>
 </body>
 </html>
