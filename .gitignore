@@ -24,8 +24,8 @@
 !docs/
 !docs/**
 
-!GH_pages/
-!GH_pages/**
+!docs.org/
+!docs.org/**
 
 !nvim/
 nvim/**

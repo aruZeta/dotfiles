@@ -30,5 +30,5 @@ configured, like Window Managers, code editors, etc.
   - [[file:./fish/][fish]]
 
 * Docs:
-- In org-mode (preferable to use on emacs, in github links may not work), [[file:./docs][here]].
-- TODO Github Pages (preferable to use in the browser).
+- In org-mode, [[file:./docs.org/][here]].
+- In html using github Pages (generated from org) [[https://aru-hackz.github.io/dotfiles/][here]].
