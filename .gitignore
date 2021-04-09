@@ -24,6 +24,9 @@
 !docs/
 !docs/**
 
+!GH_pages/
+!GH_pages/**
+
 !nvim/
 nvim/**
 
