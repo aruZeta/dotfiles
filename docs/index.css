@@ -1,0 +1,353 @@
+/* .: ~ index.css file ~ :. */
+
+/*                                 /██                       /██      /████████
+ *                                | ██                      | ██     |_____ ██/
+ *   /██████  /██████ /██   /██   | ███████  /██████  /██████ ██   /██    /██/
+ *  |____  ██/██__  █| ██  | ██/███ ██__  ██|____  ██/██____| ██  /██/   /██/
+ *   /██████| ██  \__| ██  | ██/__/ ██  \ ██ /██████| ██    | ██████/   /██/
+ *  /██__  █| ██     | ██  | ██   | ██  | ██/██__  █| ██    | ██_  ██  /██/
+ * |  ██████| ██     |  ██████/   | ██  | █|  ██████|  ██████ ██ \  ██/████████
+ *  \_______|__/      \______/    |__/  |__/\_______/\______|__/  \__|________/
+ */
+
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500');
+
+/* GLOBAL */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* BODY */
+
+body {
+  font-family: "Roboto Mono", monospace;
+  font-size: 15px;
+  background-color: #1d2021;
+  color: #fbf1c7;
+  margin: 0 2em;
+  counter-reset: SEC-H2;
+}
+
+/* LINKS */
+
+a {
+  text-decoration: underline;
+  color: #b16286;
+}
+
+/* PARAGRAPHS */
+
+p + p {
+  margin-top: 1em;
+}
+
+/* HEADINGS */
+
+h1 {
+  font-size: 3em;
+  color: #689d6a;
+  margin: 1em 0 0.2em;
+}
+
+h2 {
+  font-size: 2.5em;
+  color: #458588;
+  margin: 1em 0 0.2em;
+  counter-reset: SEC-H3;
+  counter-increment: SEC-H2;
+  position: relative;
+}
+
+h2::before {
+  content: counter(SEC-H2) ".";
+  display: inline;
+  position: absolute;
+  left: -1.4em;
+}
+
+h3 {
+  font-size: 2em;
+  color: #d79921;
+  margin: 1em 0 0.2em;
+  position: relative;
+}
+
+h3::before {
+  counter-increment: SEC-H3;
+  content: counter(SEC-H2) "." counter(SEC-H3) ".";
+  display: inline;
+  position: absolute;
+  left: -2.5em;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1.6em;
+  color: #98971a;
+  margin: 0.6em 0 0.2em;
+}
+
+/* OUTLINE */
+
+.outline-2 {
+  margin-left: 4em;
+}
+
+.outline-3 {
+  margin-left: 5em;
+}
+
+/* TITLE && SUBTITTLE */
+
+.title {
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 0.9em;
+}
+
+/* VERSE */
+
+p.verse {
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 0.3em solid #282828;
+}
+
+/* PRE */
+
+pre {
+  color: #ebddb2;
+  background-color: #282828;
+  overflow: auto;
+  margin: 1em 0;
+  padding: 0.5em 0.8em;
+  font-size: 14px;
+  line-height: 1.25em;
+  font-family: "Monospace", monospace;
+  font-weight: 300;
+  border: none;
+  border-radius: 0 1em 1em 0;
+  border-left: 0.2em dashed #928374;
+  min-height: calc(2px + 2em);
+}
+
+pre.src {
+  position: relative;
+}
+
+pre.src::before {
+  display: none;
+  position: absolute;
+  background-color: #504945;
+  text-align: center;
+  font-size: 12px;
+  top: 0.5em;
+  right: 0.5em;
+  padding: 0 1em;
+  border: 1px solid #928374;
+  border-radius: 1em;
+}
+
+pre.src:hover::before { display: inline; }
+pre.src-text::before { display: none; }
+pre.src-shell::before { content: "SHELL"; }
+pre.src-haskell::before { content: "HASKELL"; }
+
+/* CODE */
+
+code {
+  background-color: #282828;
+  color: #ebddb2;
+  font: "Monospace", monospace;
+}
+
+.org-string {
+  color: #b8bb26;
+}
+
+.org-type {
+  color: #83a598;
+}
+
+.org-comment-delimiter,
+.org-comment {
+  color: #928374;
+}
+
+.org-builtin {
+  color: #fe8019;
+}
+
+.org-variable-name {
+  color: #689d6a;
+}
+
+/* TABLE OF CONTENTS */
+
+#table-of-contents {
+  text-transform: uppercase;
+  padding-bottom: 1.2em;
+  margin: 5em 0;
+  border-bottom: 0.4em dashed #458588;
+  border-top: 0.4em dashed #458588;
+}
+
+#table-of-contents a {
+  text-decoration: none;
+}
+
+#table-of-contents h2 {
+  counter-reset: SEC-H2;
+}
+
+#table-of-contents h2::before {
+  content: "➫ ";
+  position: initial;
+}
+
+#table-of-contents > h2 {
+  margin-top: 0.2em;
+}
+
+#table-of-contents ul {
+  font-weight: 500;
+  list-style: none;
+  line-height: 2em;
+  display: flex;
+  gap: 1em;
+  flex-flow: row wrap;
+}
+
+#table-of-contents ul ul {
+  font-weight: 400;
+  font-size: 90%;
+  padding-left: 1em;
+  line-height: 2em;
+  display: block;
+}
+
+#table-of-contents ul ul ul {
+  font-weight: 300;
+  font-size: 85%;
+  padding-left: 2em;
+  line-height: 2em;
+}
+
+#table-of-contents ul li {
+  vertical-align: top;
+  background-color: #282828;
+  border-radius: 1em;
+  padding: 1em;
+  counter-increment: TOC-H2;
+  flex-grow: 1;
+  flex-basis: 30%;
+}
+
+#table-of-contents ul li a {
+  margin-left: 1.4em;
+  position: relative;
+}
+
+#table-of-contents ul li a::before {
+  content: counter(TOC-H2) ".";
+  display: inline;
+  position: absolute;
+  left: -1.4em;
+}
+
+#table-of-contents ul li li {
+  padding: 0;
+  counter-increment: TOC-H3;
+}
+
+#table-of-contents ul li li a {
+  margin-left: 2.4em;
+  position: relative;
+}
+
+#table-of-contents ul li li a::before {
+  content: counter(TOC-H2) "." counter(TOC-H3) ".";
+  display: inline;
+  position: absolute;
+  left: -2.5em;
+}
+
+/* POSTAMBLE && PREAMBLE */
+
+#postamble,
+#preamble {
+  font-size: 0.9em;
+  margin: 3em 0.5em 1em;
+  text-align: right;
+  line-height: 1em;
+  color: #7c6f64;
+}
+
+#postamble > p + p,
+#preamble > p + p {
+  margin-top: 0;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 2em;
+    color: #458588;
+    margin: 1em 0 0.2em;
+    counter-reset: SEC-H3;
+    counter-increment: SEC-H2;
+    position: relative;
+  }
+
+  h2::before {
+    content: counter(SEC-H2) ".";
+    display: inline;
+    position: relative;
+    left: 0;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    color: #d79921;
+    margin: 1em 0 0.2em;
+    position: relative;
+  }
+
+  h3::before {
+    counter-increment: SEC-H3;
+    content: counter(SEC-H2) "." counter(SEC-H3) ".";
+    display: inline;
+    position: relative;
+    left: 0;
+  }
+
+  /* OUTLINE */
+
+  .outline-2 {
+    margin-left: 0;
+  }
+
+  .outline-3 {
+    margin-left: 0;
+  }
+}

@@ -1,6 +1,7 @@
 #+TITLE: aru's Dotfiles repo
-#+DATE: April 08, 2021
-#+OPTIONS: toc:nil
+#+SETUPFILE: ~/Documents/ORG/TEMPLATES/common-data.org
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="index.css" />
+#+OPTIONS: toc:3
 
 #+begin_src text
                                 /██                       /██      /████████
@@ -16,8 +17,8 @@
 In this repo you will find my dotfiles for all those things I have tried and
 configured, like Window Managers, code editors, etc.
 
-* Table of Contents
+* Available documentation
 - Window Managers:
-  - [[file:./WindowManagers/xmonad/xmonad.org][xmonad]]
+  + [[file:./WindowManagers/xmonad/xmonad.org][xmonad]]
 - Status bars:
-  - [[file:./StatusBars/xmobar/xmobar.org][xmobar]]
+  + [[file:./StatusBars/xmobar/xmobar.org][xmobar]]

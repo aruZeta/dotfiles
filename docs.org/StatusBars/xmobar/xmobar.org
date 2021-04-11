@@ -1,5 +1,6 @@
-#+TITLE: aru's XMobar config
-#+DATE: April 08, 2021
+#+TITLE: aru's XMobar Docs
+#+SETUPFILE: ~/Documents/ORG/TEMPLATES/common-data.org
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../index.css" />
 #+OPTIONS: toc:3
 
 #+begin_src text

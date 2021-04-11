@@ -3,195 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-04-09 vie 19:36 -->
+<!-- 2021-04-11 dom 16:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>aru's XMonad config</title>
+<title>aru's XMonad Docs</title>
+<meta name="author" content="aru" />
 <meta name="generator" content="Org Mode" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
+<link rel="stylesheet" type="text/css" href="../../index.css" />
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -217,29 +35,29 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">aru&rsquo;s XMonad config</h1>
+<h1 class="title">aru&rsquo;s XMonad Docs</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge6c2347">1. Installation</a>
+<li><a href="#orge4cda6d">Installation</a>
 <ul>
-<li><a href="#orge781b85">1.1. Installing ghcup, cabal and more</a></li>
-<li><a href="#org240ac70">1.2. Installing xmonad and xmonad-contrib</a></li>
+<li><a href="#org1c4e7d8">Installing ghcup, cabal and more</a></li>
+<li><a href="#org8a97cd7">Installing xmonad and xmonad-contrib</a></li>
 </ul>
 </li>
-<li><a href="#org48d1716">2. Configuration</a>
+<li><a href="#org1cbe4a1">Configuration</a>
 <ul>
-<li><a href="#orgf566956">2.1. cabal file</a></li>
-<li><a href="#org9fc54b1">2.2. build file</a></li>
-<li><a href="#org8b998bb">2.3. hie.yaml</a></li>
-<li><a href="#orge8f9c09">2.4. xmonad config</a></li>
+<li><a href="#org7817b0f">cabal file</a></li>
+<li><a href="#orgb076e8c">build file</a></li>
+<li><a href="#orgf676664">hie.yaml</a></li>
+<li><a href="#org539c276">xmonad config</a></li>
 </ul>
 </li>
-<li><a href="#org23cba36">3. XMonad initialization</a>
+<li><a href="#org0016ae1">XMonad initialization</a>
 <ul>
-<li><a href="#orga41a710">3.1. Testing</a></li>
-<li><a href="#org6a0f06e">3.2. Configuring the login manager</a></li>
+<li><a href="#org83b913c">Testing</a></li>
+<li><a href="#orgc84913d">Configuring the login manager</a></li>
 </ul>
 </li>
 </ul>
@@ -262,24 +80,24 @@ Here is my XMonad config, and I also will guide you through the process of
 installation.
 </p>
 
-<div id="outline-container-orge6c2347" class="outline-2">
-<h2 id="orge6c2347"><span class="section-number-2">1</span> Installation</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orge4cda6d" class="outline-2">
+<h2 id="orge4cda6d">Installation</h2>
+<div class="outline-text-2" id="text-orge4cda6d">
 <p>
 Here I will show you how to install xmonad, but first you will need
 a haskell compiler, ghc, and cabal. The best way to install those is with <a href="https://gitlab.haskell.org/haskell/ghcup-hs">ghcup</a>.
 </p>
 </div>
 
-<div id="outline-container-orge781b85" class="outline-3">
-<h3 id="orge781b85"><span class="section-number-3">1.1</span> Installing ghcup, cabal and more</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org1c4e7d8" class="outline-3">
+<h3 id="org1c4e7d8">Installing ghcup, cabal and more</h3>
+<div class="outline-text-3" id="text-org1c4e7d8">
 <p>
 You can download it via a <code>curl | sh</code> command like this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #fabd2f;">curl</span> --proto <span style="color: #b8bb26;">'=https'</span> --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+<pre class="src src-shell"><span class="org-type">curl</span> --proto <span class="org-string">'=https'</span> --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 </pre>
 </div>
 
@@ -300,17 +118,17 @@ Now that you have ghcup, lets list everything available:
 <div class="org-src-container">
 <pre class="src src-shell">ghcup list
 
-<span style="color: #928374;"># </span><span style="color: #928374;">Output example:</span>
-<span style="color: #928374;">#    </span><span style="color: #928374;">Tool  Version Tags                      Notes</span>
-<span style="color: #928374;"># </span><span style="color: #928374;">&#10007;  ghc   7.10.3  base-4.8.2.0</span>
-<span style="color: #928374;"># </span><span style="color: #928374;">...</span>
-<span style="color: #928374;"># </span><span style="color: #928374;">&#10007;  ghc   8.10.4  recommended,base-4.14.1.0 hls-powered</span>
-<span style="color: #928374;"># </span><span style="color: #928374;">&#10007;  ghc   9.0.1   latest,base-4.15.0.0</span>
-<span style="color: #928374;"># </span><span style="color: #928374;">&#10007;  cabal 2.4.1.0</span>
-<span style="color: #928374;"># </span><span style="color: #928374;">...</span>
-<span style="color: #928374;"># </span><span style="color: #928374;">&#10007;  cabal 3.4.0.0 latest,recommended</span>
-<span style="color: #928374;"># </span><span style="color: #928374;">&#10007;  hls   1.0.0   latest,recommended</span>
-<span style="color: #928374;"># </span><span style="color: #928374;">&#10007;  ghcup 0.1.14  latest,recommended</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Output example:</span>
+<span class="org-comment-delimiter">#    </span><span class="org-comment">Tool  Version Tags                      Notes</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#10007;  ghc   7.10.3  base-4.8.2.0</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">...</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#10007;  ghc   8.10.4  recommended,base-4.14.1.0 hls-powered</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#10007;  ghc   9.0.1   latest,base-4.15.0.0</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#10007;  cabal 2.4.1.0</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">...</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#10007;  cabal 3.4.0.0 latest,recommended</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#10007;  hls   1.0.0   latest,recommended</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#10007;  ghcup 0.1.14  latest,recommended</span>
 </pre>
 </div>
 
@@ -338,8 +156,8 @@ add the following:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #928374;"># </span><span style="color: #928374;">.xprofile file</span>
-<span style="color: #fe8019;">export</span> <span style="color: #83a598;">PATH</span>=<span style="color: #b8bb26;">"</span><span style="color: #d3869b;">$</span><span style="color: #83a598;">PATH</span><span style="color: #b8bb26;">:</span><span style="color: #d3869b;">$</span><span style="color: #83a598;">HOME</span><span style="color: #b8bb26;">/.cabal/bin:</span><span style="color: #d3869b;">$</span><span style="color: #83a598;">HOME</span><span style="color: #b8bb26;">/.local/bin"</span>
+<pre class="src src-shell"><span class="org-comment-delimiter"># </span><span class="org-comment">.xprofile file</span>
+<span class="org-builtin">export</span> <span class="org-variable-name">PATH</span>=<span class="org-string">"</span><span class="org-string"><span class="org-constant">$</span></span><span class="org-string"><span class="org-variable-name">PATH</span></span><span class="org-string">:</span><span class="org-string"><span class="org-constant">$</span></span><span class="org-string"><span class="org-variable-name">HOME</span></span><span class="org-string">/.cabal/bin:</span><span class="org-string"><span class="org-constant">$</span></span><span class="org-string"><span class="org-variable-name">HOME</span></span><span class="org-string">/.local/bin"</span>
 </pre>
 </div>
 
@@ -350,9 +168,9 @@ variable takes effect.
 </div>
 </div>
 
-<div id="outline-container-org240ac70" class="outline-3">
-<h3 id="org240ac70"><span class="section-number-3">1.2</span> Installing xmonad and xmonad-contrib</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org8a97cd7" class="outline-3">
+<h3 id="org8a97cd7">Installing xmonad and xmonad-contrib</h3>
+<div class="outline-text-3" id="text-org8a97cd7">
 <p>
 With cabal installed we can just do <code>cabal install &lt;package&gt;</code> to install
 packages, but for <code>xmonad-contrib</code> you will need to specify the <code>--lib</code> flag
@@ -369,17 +187,17 @@ cabal install --lib xmonad-contrib
 </div>
 </div>
 
-<div id="outline-container-org48d1716" class="outline-2">
-<h2 id="org48d1716"><span class="section-number-2">2</span> Configuration</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org1cbe4a1" class="outline-2">
+<h2 id="org1cbe4a1">Configuration</h2>
+<div class="outline-text-2" id="text-org1cbe4a1">
 <p>
 We have everything we need, lets start confuring it to make it work.
 </p>
 </div>
 
-<div id="outline-container-orgf566956" class="outline-3">
-<h3 id="orgf566956"><span class="section-number-3">2.1</span> cabal file</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org7817b0f" class="outline-3">
+<h3 id="org7817b0f">cabal file</h3>
+<div class="outline-text-3" id="text-org7817b0f">
 <p>
 We will be using cabal to manage our project, so we will need a cabal file for
 it, you can use <a href="../../../xmonad/aru-xmonad.cabal">my cabal file</a> changing any parameter or info you need.
@@ -401,9 +219,9 @@ because you will have problems if you dont do it this way.
 </div>
 </div>
 
-<div id="outline-container-org9fc54b1" class="outline-3">
-<h3 id="org9fc54b1"><span class="section-number-3">2.2</span> build file</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgb076e8c" class="outline-3">
+<h3 id="orgb076e8c">build file</h3>
+<div class="outline-text-3" id="text-orgb076e8c">
 <p>
 Because we are using cabal to build our executable, we will need a build file
 which xmonad will use when recompiling to tell cabal to build the executable.
@@ -414,9 +232,9 @@ also <code>$EXE_NAME</code> to the name you gave the executable in your cabal fi
 </div>
 </div>
 
-<div id="outline-container-org8b998bb" class="outline-3">
-<h3 id="org8b998bb"><span class="section-number-3">2.3</span> hie.yaml</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-orgf676664" class="outline-3">
+<h3 id="orgf676664">hie.yaml</h3>
+<div class="outline-text-3" id="text-orgf676664">
 <p>
 If you are using an IDE like VSCode or any code editor with lsp, and you have
 installed HLS, you should make a hie.yaml file in every cabal project you
@@ -433,9 +251,9 @@ able to use HLS with its maximum power.
 </div>
 </div>
 
-<div id="outline-container-orge8f9c09" class="outline-3">
-<h3 id="orge8f9c09"><span class="section-number-3">2.4</span> xmonad config</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-org539c276" class="outline-3">
+<h3 id="org539c276">xmonad config</h3>
+<div class="outline-text-3" id="text-org539c276">
 <p>
 Now you need to create a xmonad.hs file (or how you called it in the cabal
 file, inside the executable, with the <code>main-is</code> parameter) and inside of it put
@@ -445,13 +263,13 @@ your configuration.
 </div>
 </div>
 
-<div id="outline-container-org23cba36" class="outline-2">
-<h2 id="org23cba36"><span class="section-number-2">3</span> XMonad initialization</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org0016ae1" class="outline-2">
+<h2 id="org0016ae1">XMonad initialization</h2>
+<div class="outline-text-2" id="text-org0016ae1">
 </div>
-<div id="outline-container-orga41a710" class="outline-3">
-<h3 id="orga41a710"><span class="section-number-3">3.1</span> Testing</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-org83b913c" class="outline-3">
+<h3 id="org83b913c">Testing</h3>
+<div class="outline-text-3" id="text-org83b913c">
 <p>
 Before the next step, you have to run <code>cabal build</code> to build the project. Now
 you can compile xmonad, and see if it works, to do it just run
@@ -467,9 +285,9 @@ the next step.
 </div>
 </div>
 
-<div id="outline-container-org6a0f06e" class="outline-3">
-<h3 id="org6a0f06e"><span class="section-number-3">3.2</span> Configuring the login manager</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-orgc84913d" class="outline-3">
+<h3 id="orgc84913d">Configuring the login manager</h3>
+<div class="outline-text-3" id="text-orgc84913d">
 <p>
 Now that you have a working xmonad config, you want to start it with your login
 manager of preference, so we need to setup a <code>.desktop</code> file in
@@ -498,7 +316,7 @@ gives any error.
 </p>
 
 <p>
-As I told you at the end of <a href="#orge781b85">here</a>, you will need to have the executables in your
+As I told you at the end of <a href="#org1c4e7d8">here</a>, you will need to have the executables in your
 path.
 </p>
 </div>
@@ -506,8 +324,8 @@ path.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: April 08, 2021</p>
-<p class="date">Created: 2021-04-09 vie 19:36</p>
+<p class="author">Author: aru</p>
+<p class="date">Created: 2021-04-11 dom 16:36</p>
 </div>
 </body>
 </html>
