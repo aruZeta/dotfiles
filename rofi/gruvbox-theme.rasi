@@ -1,3 +1,6 @@
+# .: ~ rofi/config.rasi file ~ :.
+# by aru
+
 * {
     highlight: bold italic;
     scrollbar: true;

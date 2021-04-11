@@ -1,3 +1,6 @@
+# .: ~ rofi/config.rasi file ~ :.
+# by aru
+
 configuration {
     modi: "drun";
     font: "FiraCode Nerd Font Mono Bold 9";
