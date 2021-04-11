@@ -200,7 +200,7 @@ code {
 #table-of-contents {
   text-transform: uppercase;
   padding-bottom: 1.2em;
-  margin: 5em 0;
+  margin: 5em 0 2em;
   border-bottom: 0.4em dashed #458588;
   border-top: 0.4em dashed #458588;
 }
