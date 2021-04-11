@@ -99,6 +99,10 @@ h6 {
   margin-left: 4em;
 }
 
+.outline-2 ul ul {
+  margin-left: 1em;
+}
+
 .outline-3 {
   margin-left: 5em;
 }
