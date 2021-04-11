@@ -1,5 +1,6 @@
-# .: ~ rofi/config.rasi file ~ :.
-# by aru
+/* .: ~ rofi/config.rasi file ~ :.
+ * by aru
+ */
 
 * {
     highlight: bold italic;
