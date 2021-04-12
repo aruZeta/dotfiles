@@ -29,7 +29,7 @@ kakoune/**
 emacs/**
 
 !doom/
-doom/**
+!doom/**
 
 !zsh/
 !zsh/**
