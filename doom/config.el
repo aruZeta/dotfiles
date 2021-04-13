@@ -1,6 +1,14 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 ;;; by aru
 
+;; Fonts
+
+(setq doom-font (font-spec :family "Iosevka Term Curly Medium" :size 14)
+      doom-variable-pitch-font (font-spec :family "Iosevka Term Curly Medium" :size 14)
+      doom-big-font (font-spec :family "Iosevka Term Curly Medium" :size 20))
+
+(custom-set-faces! '(treemacs-directory-face :foreground "#689d6a"))
+
 ;; Doom theme
 
 (use-package! doom-themes
@@ -16,14 +24,6 @@
 (setq fancy-splash-image "~/.config/doom/icons/z.png")
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-footer)
-
-;; Fonts
-
-(setq doom-font (font-spec :family "Iosevka Term Curly Medium" :size 14)
-      doom-variable-pitch-font (font-spec :family "Iosevka Term Curly Medium" :size 14)
-      doom-big-font (font-spec :family "Iosevka Term Curly Medium" :size 20))
-
-(custom-set-faces! '(treemacs-directory-face :foreground "#689d6a"))
 
 ;; Org, agenda and capture
 
