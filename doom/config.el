@@ -1,11 +1,20 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 ;;; by aru
 
+(setq user-mail-address "aru_hackz.official@zohomail.eu"
+      user-full-name "Alberto Robles Gomez")
+
+;; Startup
+
+(setq fancy-splash-image "~/.config/doom/icons/z.png")
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-footer)
+
 ;; Fonts
 
-(setq doom-font (font-spec :family "Iosevka Term Curly Medium" :size 14)
+(setq doom-font                (font-spec :family "Iosevka Term Curly Medium" :size 14)
       doom-variable-pitch-font (font-spec :family "Iosevka Term Curly Medium" :size 14)
-      doom-big-font (font-spec :family "Iosevka Term Curly Medium" :size 20))
+      doom-big-font            (font-spec :family "Iosevka Term Curly Medium" :size 20))
 
 (custom-set-faces! '(treemacs-directory-face :foreground "#689d6a"))
 
@@ -21,11 +30,7 @@
   (doom-themes-treemacs-config)
   (doom-themes-org-config))
 
-(setq fancy-splash-image "~/.config/doom/icons/z.png")
-(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
-(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-footer)
-
-;; Org, agenda and capture
+;; Org config
 
 (setq org-directory "~/Documents/ORG/"
       org-agenda-files (list "~/Documents/ORG/inbox.org"
@@ -36,8 +41,32 @@
       org-priority-highest 1
       org-priority-lowest 5
       org-priority-default 5
-      org-todo-keywords '((sequencep "TODO(t)" "NEXT(n)" "|" "DONE(d)"))
+      org-todo-keywords '((sequencep "TODO(t)" "NEXT(n)" "|" "DONE(d)" "CANCELED(x)"))
       org-log-done 'time)
+
+(after! org-fancy-priorities
+  (setq org-fancy-priorities-list '((?1 . "➀")
+                                    (?2 . "➁")
+                                    (?3 . "➂")
+                                    (?4 . "➃")
+                                    (?5 . "➄"))))
+
+(add-hook! 'org-after-todo-state-change-hook #'log-todo-next-creation-date)
+
+;; Org publishing config
+
+(setq org-html-htmlize-output-type 'css
+      org-html-head-include-default-style nil
+      org-publish-project-alist
+      '(("Dotfiles-docs"
+        :headline-levels 3
+        :recursive t
+        :base-extension "org"
+        :base-directory "~/Dotfiles/docs.org/"
+        :publishing-directory "~/Dotfiles/docs/"
+        :publishing-function org-html-publish-to-html)))
+
+;; Org-capture config
 
 (after! org-capture
   (setq org-capture-templates
@@ -52,6 +81,8 @@
 
           ("@" "Inbox [mu4e]" entry (file "~/Documents/ORG/inbox.org")
            "* TODO Reply to \"%a\" %?\n/Entered on/ %U"))))
+;; Org-agenda condif
+
 
 (after! org-agenda
   (setq
@@ -67,7 +98,7 @@
                            (?3 . (:foreground "#d79921" :weight semibold))
                            (?4 . (:foreground "#98971a"))
                            (?5 . (:foreground "#689d6a")))
-      org-todo-keywords '((sequencep "TODO(t)" "NEXT(n)" "|" "DONE(d)"))
+      org-todo-keywords '((sequencep "TODO(t)" "NEXT(n)" "|" "DONE(d)" "CANCELED(c)"))
       org-agenda-custom-commands
       '(("g" "Get Things Done (GTD)"
          ((todo "NEXT"
@@ -95,18 +126,15 @@
                    (org-deadline-warning-days 7)
                    (org-agenda-overriding-header "\nDeadlines\n")))))))
 
-(after! org-fancy-priorities
-  (setq org-fancy-priorities-list '((?1 . "➀")
-                                    (?2 . "➁")
-                                    (?3 . "➂")
-                                    (?4 . "➃")
-                                    (?5 . "➄"))))
+;; Functions
 
 (defun log-todo-next-creation-date (&rest _)
   "Log NEXT creation time in the property drawer under the key 'ACTIVATED'"
   (when (and (string= (org-get-todo-state) "NEXT")
              (not (org-entry-get nil "ACTIVATED")))
     (org-entry-put nil "ACTIVATED" (format-time-string "[%Y-%m-%d %H:%M]"))))
+
+;; Before this do that
 
 (advice-add 'org-refile :before
             (lambda (&rest _)
@@ -116,7 +144,7 @@
             (lambda (&rest _)
               (org-save-all-org-buffers)))
 
-(add-hook! 'org-after-todo-state-change-hook #'log-todo-next-creation-date)
+;; Keybindings
 
 (map! :leader
       :prefix ("X" . "Org Capture / Agenda")
@@ -142,17 +170,6 @@
 
        (:prefix ("C" . "prefix capture")
          :desc "Org refile" "r" #'org-capture-refile))
-
-(setq org-html-htmlize-output-type 'css
-      org-html-head-include-default-style nil
-      org-publish-project-alist
-      '(("Dotfiles-docs"
-        :headline-levels 3
-        :recursive t
-        :base-extension "org"
-        :base-directory "~/Dotfiles/docs.org/"
-        :publishing-directory "~/Dotfiles/docs/"
-        :publishing-function org-html-publish-to-html)))
 
 ;; Random
 
@@ -186,9 +203,7 @@
 (setq +mu4e-mu4e-mail-path "~/Documents/MAIL/")
 
 (set-email-account! "Main Mail"
-  '((user-mail-address                   . "aru_hackz.official@zohomail.eu")
-    (user-full-name                      . "Alberto Robles")
-    (mail-user-agent                     . mu4e-user-agent)
+  '((mail-user-agent                     . mu4e-user-agent)
     (smtpmail-smtp-server                . "smtp.zoho.eu")
     (smtpmail-smtp-service               . 465)
     (smtpmail-smtp-user                  . "aru_hackz.official@zohomail.eu")
