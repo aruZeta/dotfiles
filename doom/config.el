@@ -53,6 +53,10 @@
 
 (add-hook! 'org-after-todo-state-change-hook #'log-todo-next-creation-date)
 
+(after! org
+  (+org-pretty-mode)
+  (auto-fill-mode))
+
 ;; Org publishing config
 
 (setq org-html-htmlize-output-type 'css

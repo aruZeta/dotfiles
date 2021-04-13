@@ -51,3 +51,4 @@
 
 (package! evil-tutor)
 (package! mu4e-alert)
+(package! auctex :pin "384c4b989192087144512a528bcc1949c2ab3e5b")
