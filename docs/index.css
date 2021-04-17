@@ -38,6 +38,12 @@ p + p {
   margin-top: 1em;
 }
 
+/* LISTS */
+
+p + ul {
+  margin-top: 1em;
+}
+
 /* HEADINGS */
 
 h1 {
@@ -93,6 +99,10 @@ h6 {
 
 .outline-2 ul ul {
   margin-left: 1em;
+}
+
+.outline-2 li + li {
+  margin-top: 0.4em;
 }
 
 .outline-3 {
@@ -174,6 +184,10 @@ code {
   color: #83a598;
 }
 
+.org-highlight-numbers-number {
+  color: #d3869b;
+}
+
 .org-comment-delimiter,
 .org-comment {
   color: #928374;
@@ -185,6 +199,26 @@ code {
 
 .org-variable-name {
   color: #689d6a;
+}
+
+.org-haskell-definition {
+  color: #b8bb26;
+}
+
+.org-haskell-constructor {
+  color: #fabd2f;
+}
+
+.org-haskell-operator {
+  color: #83a598;
+}
+
+.org-haskell-type {
+  color: #fabd2f;
+}
+
+.org-haskell-keyword {
+  color: #fb4934;
 }
 
 /* TABLE OF CONTENTS */
