@@ -52,10 +52,11 @@
                                     (?5 . "➄"))))
 
 (add-hook! 'org-after-todo-state-change-hook #'log-todo-next-creation-date)
+(add-hook! 'org-mode-hook #'turn-on-auto-fill)
 
-(after! org
-  (+org-pretty-mode)
-  (auto-fill-mode))
+(use-package! org
+  :config
+  (+org-pretty-mode))
 
 ;; Org publishing config
 
@@ -63,12 +64,20 @@
       org-html-head-include-default-style nil
       org-publish-project-alist
       '(("Dotfiles-docs"
-        :headline-levels 3
-        :recursive t
-        :base-extension "org"
-        :base-directory "~/Dotfiles/docs.org/"
-        :publishing-directory "~/Dotfiles/docs/"
-        :publishing-function org-html-publish-to-html)))
+         :headline-levels 3
+         :recursive t
+         :base-extension "org"
+         :base-directory "~/Dotfiles/docs.org/"
+         :publishing-directory "~/Dotfiles/docs/"
+         :publishing-function org-html-publish-to-html)
+        ("Haskell-learning" :components ("hl-learn_you_a_haskell"))
+        ("hl-learn_you_a_haskell"
+         :headline-levels 3
+         :recursive t
+         :base-extension "org"
+         :base-directory "~/Documents/LEARNING/haskell/docs.org/"
+         :publishing-directory "~/Documents/LEARNING/haskell/docs/"
+         :publishing-function org-html-publish-to-html)))
 
 ;; Org-capture config
 
