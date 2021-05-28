@@ -56,3 +56,6 @@ xmonad/dist-newstyle/
 
 !rofi/
 !rofi/**
+
+!picom/
+!picom/**

@@ -15,9 +15,9 @@ window:
   # position:
   #   x: 0
   #   y: 0
-  # padding:
-  #   x: 0
-  #   y: 0
+  padding:
+    x: 5
+    y: 5
   # dynamic_padding: false
   # decorations: full
   # startup_mode: Windowed
@@ -105,7 +105,7 @@ colors:
     cyan: '#427b58'
     white: '#928374'
 
-background_opacity: 1.0
+background_opacity: 0.8
 
 # selection:
 #   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -133,7 +133,7 @@ mouse:
   # double_click: { threshold: 300 }
   # triple_click: { threshold: 300 }
   hide_when_typing: true
-  url:
+  hints:
     # modifiers: None
     launcher:
       program: xdg-open
