@@ -2,32 +2,22 @@
 -- by aru
 
 import XMonad
-    ( mod4Mask, gets, io, spawn, (|||), xmonad, (-->), (<+>), (=?), className
+    ( mod4Mask, io, spawn, (|||), xmonad, (-->), (<+>), (=?), className
     , composeAll, doFloat, doShift, title, sendMessage, windows, withFocused
     ,  KeyMask, Dimension, Default(def), Query, WindowSet, X
-    ,  XConfig( manageHook, layoutHook, logHook, startupHook
+    ,  XConfig( manageHook, layoutHook, startupHook
               , focusFollowsMouse, terminal, modMask, borderWidth
               , normalBorderColor, focusedBorderColor, workspaces)
-    , XState(windowset), ChangeLayout(NextLayout), Full(Full), Tall(Tall)
+    , ChangeLayout(NextLayout), Full(Full), Tall(Tall)
     )
 
-import XMonad.Hooks.DynamicLog
-    ( dynamicLogWithPP, shorten, wrap, xmobarColor, xmobarPP
-    , PP( ppOutput, ppCurrent, ppVisible, ppHidden, ppHiddenNoWindows
-        , ppTitle, ppSep, ppUrgent, ppExtras, ppOrder
-        )
-    )
 import XMonad.Hooks.ManageDocks (avoidStruts, docks, manageDocks)
 import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat)
-import XMonad.Hooks.WorkspaceHistory (workspaceHistoryHook)
 import XMonad.Hooks.SetWMName (setWMName)
 import XMonad.Hooks.EwmhDesktops (ewmh)
 
-import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig (additionalKeysP)
-import XMonad.Util.SpawnOnce (spawnOnce)
 
-import XMonad.Layout.NoBorders (noBorders, smartBorders)
 import XMonad.Layout.Grid (Grid(..))
 import XMonad.Layout.Spacing (spacingRaw, Border(Border), Spacing)
 import XMonad.Layout.LayoutModifier (ModifiedLayout)
@@ -35,38 +25,23 @@ import XMonad.Layout.LayoutModifier (ModifiedLayout)
 import XMonad.Actions.WithAll (killAll)
 import XMonad.Actions.CopyWindow (kill1)
 
-import qualified XMonad.StackSet as XM_SS (integrate', stack, workspace, current, sink)
+import qualified XMonad.StackSet as XM_SS
+
+import XMonad.Util.SpawnOnce (spawnOnce)
 
 import Data.Monoid (Endo)
 
-import System.IO (hPutStrLn)
 import System.Exit (exitSuccess)
 
 main :: IO ()
 main = do
-    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc0"
-    xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/xmobarrc1"
-
     xmonad $ ewmh $ docks $ def
         { manageHook = (isFullscreen --> doFullFloat)
                 <+> manageDocks
                 <+> myManageHook
         , layoutHook = myLayoutHook
-        , logHook = workspaceHistoryHook
-            <+> dynamicLogWithPP xmobarPP
-            { ppOutput = \x -> hPutStrLn xmproc0 x >> hPutStrLn xmproc1 x
-            , ppCurrent = xmobarColor "#98971a" "" . wrap "[" "]"
-            , ppVisible = xmobarColor "#98971a" ""
-            , ppHidden = xmobarColor "#458588" ""
-            , ppHiddenNoWindows = xmobarColor "#d3869b" ""
-            , ppTitle = xmobarColor "#b16286" "" . shorten 43
-            , ppSep =  "<fc=#a89984> | </fc>"
-            , ppUrgent = xmobarColor "#cc241d" "" . wrap "!" "!"
-            , ppExtras  = [windowCount]
-            , ppOrder  = \(ws:l:t:_) -> [ws,l] ++ [t]
-            }
         , startupHook = myStartupHook
-        , focusFollowsMouse = False
+        , focusFollowsMouse = True
         , terminal = myTerm
         , modMask = myMod
         , borderWidth = myBorderW
@@ -76,9 +51,6 @@ main = do
         }
         `additionalKeysP` myKeys
 
-windowCount :: X (Maybe String)
-windowCount = gets $ Just . show . length . XM_SS.integrate' . XM_SS.stack . XM_SS.workspace . XM_SS.current . windowset
-
 myTerm :: String
 myTerm = "alacritty"
 
@@ -86,13 +58,13 @@ myMod :: KeyMask
 myMod = mod4Mask
 
 myBorderW :: Dimension
-myBorderW = 2
+myBorderW = 5
 
 myFocusColor :: String
-myFocusColor = "#a89984"
+myFocusColor = "#504945"
 
 myNormalColor :: String
-myNormalColor = "#3c3836"
+myNormalColor = "#1d2021"
 
 myWorkspaces :: [String]
 myWorkspaces = ["www", "dev", "sys", "gfx", "vbox", "chat"]
@@ -109,17 +81,17 @@ myManageHook = composeAll
     ]
 
 myLayoutHook =
-        avoidStruts (noBorders Full)
-    ||| smartBorders (avoidStruts $ mySpacing 2 $ Tall 1 (5/100) (1/2))
-    ||| smartBorders (avoidStruts $ mySpacing 2 Grid)
+        avoidStruts (mySpacing 5 Full)
+    ||| avoidStruts (mySpacing 5 $ Tall 1 (5/100) (1/2))
+    ||| avoidStruts (mySpacing 5 Grid)
 
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
-mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
+mySpacing i = spacingRaw False (Border i i i i) False (Border i i i i) True
 
 myStartupHook :: X ()
 myStartupHook = do
-    spawnOnce "trayer --edge top --align right --widthtype request --padding 0 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --margin 0 --iconspacing 5 --transparent true --alpha 0 --tint 0x1d2021 --height 22 &"
     setWMName "LG3D"
+    spawnOnce "eww daemon"
 
 myKeys :: [([Char], X ())]
 myKeys =
