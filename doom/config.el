@@ -23,8 +23,7 @@
 (use-package! doom-themes
   :config
   (setq doom-themes-enable-bold
-        doom-themes-enable-italic
-        doom-gruvbox-dark-variant "hard")
+        doom-themes-enable-italic)
   (load-theme 'doom-gruvbox t)
   (setq doom-themes-treemacs-theme "doom-colors")
   (doom-themes-treemacs-config)
@@ -94,8 +93,8 @@
 
           ("@" "Inbox [mu4e]" entry (file "~/Documents/ORG/inbox.org")
            "* TODO Reply to \"%a\" %?\n/Entered on/ %U"))))
-;; Org-agenda condif
 
+;; Org-agenda config
 
 (after! org-agenda
   (setq
