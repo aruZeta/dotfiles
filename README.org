@@ -1,6 +1,8 @@
 #+TITLE: aru's Dotfiles repo
 #+DATE: April 08, 2021
 
+This is my old dotfiles repo from when I still used arch.
+
 In this repo you will find my dotfiles for all those things I have tried and
 configured, like Window Managers, code editors, etc.
 
